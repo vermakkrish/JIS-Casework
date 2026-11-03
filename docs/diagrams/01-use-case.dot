@@ -1,0 +1,8 @@
+digraph UseCase {
+ graph [rankdir=LR,bgcolor="white",pad=.4,ranksep=1]; node [fontname="Arial",fontsize=12,color="#456451"]; edge [color="#71856c",fontname="Arial",fontsize=10];
+ Registrar [shape=plaintext,label="«actor»\nRegistrar"]; Judge [shape=plaintext,label="«actor»\nJudge"]; Lawyer [shape=plaintext,label="«actor»\nLawyer"];
+ subgraph cluster_jis { label="JIS · authenticated internal workspace"; color="#dce1d8";
+ R1 [label="R1 Register case"]; R2 [label="R2 Schedule hearing"]; R3 [label="R3 Reschedule / adjourn\nwith history and reason"]; R4 [label="R4 Record summary\nand complete hearing"]; R5 [label="R5 Record judgment\nand close case atomically"]; R6 [label="R6 Search and browse\nauthorized cases"]; R7 [label="R7 Create / deactivate\nJudge and Lawyer accounts"]; Assign [label="Update case assignments\nwith reason"]; Auth [label="Authenticate / sign out\nChange own password"];
+ }
+ Registrar -> {R1 R2 R3 R6 R7 Assign Auth}; Judge -> {R4 R5 R6 Auth}; Lawyer -> {R6 Auth};
+}

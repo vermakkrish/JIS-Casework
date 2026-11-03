@@ -1,0 +1,24 @@
+.env
+.env.*
+!.env.example
+.venv/
+__pycache__/
+*.py[cod]
+db.sqlite3*
+staticfiles/
+node_modules/
+test-results/
+playwright-report/
+private/
+*.dump
+.coverage
+
+# Local editor, OS and runtime artifacts
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+*.pem
+*.key
+*.sql

@@ -1,0 +1,39 @@
+name: JIS checks
+on: [push, pull_request]
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:18
+        env:
+          POSTGRES_PASSWORD: ci-only-password
+          POSTGRES_DB: jis
+        ports: ['5432:5432']
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+    env:
+      DATABASE_URL: postgresql://postgres:ci-only-password@localhost:5432/jis
+      JIS_ENV: development
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - run: pip install -r requirements.txt
+      - run: python manage.py collectstatic --noinput
+      - run: python manage.py makemigrations --check --dry-run
+      - run: python manage.py test core --verbosity 2
+      - run: npm ci && npm run diagrams
+      - run: python manage.py migrate --noinput
+      - name: Browser acceptance
+        shell: bash
+        run: |
+          export DEMO_PASSWORD="$(python -c 'import secrets; print(secrets.token_urlsafe(24))')"
+          python manage.py seed_demo
+          npx playwright install --with-deps chromium
+          python manage.py runserver 127.0.0.1:8000 --noreload > /tmp/jis-server.log 2>&1 &
+          for i in $(seq 1 30); do curl -fsS http://127.0.0.1:8000/health/ && break || sleep 1; done
+          BROWSER_CHANNEL=chromium npm run test:e2e

@@ -1,0 +1,32 @@
+{
+  "database_restart": "PASS",
+  "full_record_digest_unchanged": true,
+  "restart_method": "Stopped the controlled PostgreSQL process, restarted the same persistent cluster; PostgreSQL performed WAL crash recovery. Complete application-record digest unchanged.",
+  "backup_restore_rehearsal": "NOT RUN: bundled PostgreSQL runtime omits pg_dump/pg_restore; managed-host backup and recovery runbook is provided.",
+  "before": {
+    "counts": {
+      "core_user": 6,
+      "core_case": 7,
+      "core_representation": 7,
+      "core_hearing": 5,
+      "core_hearingchange": 8,
+      "core_judgment": 2,
+      "core_auditevent": 20
+    },
+    "sha256": "d16b987d6199cf91075cfbfea769519cba9a876f6a2eabea7b0dbd4b1584a014",
+    "inconsistent_case_judgment_count": 0
+  },
+  "after": {
+    "counts": {
+      "core_user": 6,
+      "core_case": 7,
+      "core_representation": 7,
+      "core_hearing": 5,
+      "core_hearingchange": 8,
+      "core_judgment": 2,
+      "core_auditevent": 20
+    },
+    "sha256": "d16b987d6199cf91075cfbfea769519cba9a876f6a2eabea7b0dbd4b1584a014",
+    "inconsistent_case_judgment_count": 0
+  }
+}

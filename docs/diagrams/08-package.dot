@@ -1,0 +1,17 @@
+digraph Packages {
+ graph [rankdir=TB,pad=.5];node [shape=folder,style=filled,fillcolor="#f7f9f2",fontname="Arial",fontsize=12,color="#456451"];edge [fontname="Arial",fontsize=10,color="#71856c"];
+ templates [label="templates / static\nPresentation and progressive enhancement"];
+ views [label="core.views / core.forms\nHTTP, CSRF, form validation, routing"];
+ services [label="core.services\nPermissions, transitions, orchestration"];
+ repo [label="core.repository\nQueries, locks, atomic transactions"];
+ models [label="core.models / migrations\nRelational schema, constraints, triggers"];
+ db [shape=cylinder,label="PostgreSQL"];
+ config [label="config\nSettings, URLs, WSGI"];
+ django [label="Django framework\nAuth, sessions, password validation"];
+ templates -> views [label="GET / POST"];views -> services [label="validated commands"];services -> repo [label="queries / transaction"];
+ repo -> models [label="ORM"];models -> db [label="SQL"];
+ services -> models [style=dashed,label="domain types and read aggregates"];
+ views -> models [style=dashed,label="enum types / related detail reads"];
+ config -> views [label="routes"];views -> django [label="auth / CSRF"];services -> django [label="password policy"];
+ note [shape=note,label="All consequential writes traverse the service layer.\nRead-only relation loading uses Django's ORM idiom.\nNo controller writes or utility-to-repository shortcuts."];
+}

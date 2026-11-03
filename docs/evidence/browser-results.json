@@ -1,0 +1,58 @@
+{
+  "base": "http://127.0.0.1:8001",
+  "runAt": "2026-10-19T12:21:51.234Z",
+  "viewport": [
+    1440,
+    1000,
+    390,
+    844
+  ],
+  "results": [
+    {
+      "id": "UI01",
+      "description": "Registrar sign-in and data-backed overview",
+      "status": "PASS"
+    },
+    {
+      "id": "UI02",
+      "description": "R1 registration displays a persisted unique CIN",
+      "status": "PASS"
+    },
+    {
+      "id": "UI03",
+      "description": "R2/R3 schedule, reschedule, adjourn and visible change history",
+      "status": "PASS"
+    },
+    {
+      "id": "UI04",
+      "description": "R7 account creation and deactivation with preserved attribution",
+      "status": "PASS"
+    },
+    {
+      "id": "UI05",
+      "description": "R6 Lawyer search and read-only record/agenda; unauthorized POST rejected",
+      "status": "PASS"
+    },
+    {
+      "id": "UI06",
+      "description": "R4 assigned Judge records and completes the correct hearing",
+      "status": "PASS"
+    },
+    {
+      "id": "UI07",
+      "description": "R5 judgment and closure persist after reload with final record visible",
+      "status": "PASS"
+    },
+    {
+      "id": "UI08",
+      "description": "Unassigned Lawyer cannot retrieve another case by URL",
+      "status": "PASS"
+    },
+    {
+      "id": "UI09",
+      "description": "Desktop/mobile responsive checks, five axe audits and no browser script errors",
+      "status": "PASS"
+    }
+  ],
+  "scriptErrors": []
+}

@@ -1,0 +1,21 @@
+{
+  "target": "http://127.0.0.1:8001",
+  "timestamp": "2026-10-19T17:17:02.519Z",
+  "results": [
+    {
+      "role": "registrar",
+      "status": "PASS",
+      "checks": "Sign-in, persisted Orchid case closure and judgment, role boundary after application/database restart"
+    },
+    {
+      "role": "judge",
+      "status": "PASS",
+      "checks": "Sign-in, persisted Orchid case closure and judgment, role boundary after application/database restart"
+    },
+    {
+      "role": "lawyer",
+      "status": "PASS",
+      "checks": "Sign-in, persisted Orchid case closure and judgment, role boundary after application/database restart"
+    }
+  ]
+}

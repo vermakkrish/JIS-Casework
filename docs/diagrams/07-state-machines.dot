@@ -1,0 +1,25 @@
+digraph State {
+ graph [rankdir=LR,pad=.4,ranksep=.7];node [shape=box,style="rounded,filled",fillcolor="#f7f9f2",fontname="Arial",fontsize=10,color="#456451"];edge [fontname="Arial",fontsize=9,color="#71856c"];
+ subgraph cluster_case {label="Case state machine";color="#dce1d8";
+ start [shape=point];Registered;Pending;InProgress [label="In progress"];Closed [peripheries=2];
+ start -> Registered [label="register / generate CIN"];
+ Registered -> Pending [label="first hearing scheduled"];
+ Pending -> InProgress [label="assigned Judge saves summary"];
+ InProgress -> InProgress [label="schedule / complete more hearings"];
+ Registered -> Closed [label="record judgment [no booked hearing]"];
+ Pending -> Closed [label="record judgment [no booked hearing]"];
+ InProgress -> Closed [label="record judgment [no booked hearing]"];
+ }
+ subgraph cluster_hearing {label="Hearing state machine · open case required for every mutation";color="#dce1d8";
+ hs [shape=point];Scheduled;Rescheduled;Adjourned;Completed [peripheries=2];
+ hs -> Scheduled [label="Registrar / valid future slot"];
+ Scheduled -> Rescheduled [label="Registrar / new free slot + reason"];
+ Rescheduled -> Rescheduled [label="Registrar / different free slot + reason"];
+ Scheduled -> Adjourned [label="Registrar / reason; release slot"];
+ Rescheduled -> Adjourned [label="Registrar / reason; release slot"];
+ Adjourned -> Rescheduled [label="Registrar / free slot + reason"];
+ Scheduled -> Completed [label="assigned Judge / time reached + summary"];
+ Rescheduled -> Completed [label="assigned Judge / time reached + summary"];
+ }
+ note [shape=note,label="Judgment INSERT closes Case in same transaction.\nClosed is terminal. No reopen.\nCompleted summary is immutable.\nAdjourned hearings remain history when Case closes.\nA Case has at most one currently booked hearing."];
+}

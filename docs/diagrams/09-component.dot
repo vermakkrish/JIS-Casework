@@ -1,0 +1,13 @@
+digraph Components {
+ graph [rankdir=LR,pad=.4];node [shape=component,style=filled,fillcolor="#f7f9f2",fontname="Arial",fontsize=11,color="#456451"];edge [fontname="Arial",fontsize=10,color="#71856c"];
+ browser [label="Web UI\nHTML + CSS + small JS"];
+ http [label="Django HTTP presentation\nLogin, cases, agenda, accounts"];
+ auth [label="Django authentication\nArgon2id + database sessions + CSRF"];
+ business [label="Application services\nCases, hearings, judgments, accounts"];
+ persistence [label="Repository + Django ORM\nTransaction boundaries and locks"];
+ sql [shape=cylinder,label="Relational database\nPostgreSQL"];
+ assets [label="WhiteNoise\nVersioned static assets"];
+ browser -> http [label="HTTPS same-origin GET/POST"];browser -> assets [label="static assets"];http -> auth [label="session validation"];
+ http -> business [label="commands"];business -> persistence [label="authorized operations"];persistence -> sql [label="SQL + FK + uniqueness + triggers"];auth -> sql [label="users / sessions"];
+ note [shape=note,label="No email/SMS, payment, document-storage,\nexternal judiciary or AI components."];
+}

@@ -1,0 +1,11 @@
+digraph Deployment {
+ graph [rankdir=LR,pad=.4];node [shape=box3d,style=filled,fillcolor="#f7f9f2",fontname="Arial",fontsize=11,color="#456451"];edge [fontname="Arial",fontsize=10,color="#71856c"];
+ client [label="«device» User computer / phone\nModern browser"];
+ proxy [label="«node» Trusted hosting ingress\nTLS termination / HTTPS redirect"];
+ app [label="«execution environment» Web service\nPython 3.12 + Gunicorn\nDjango application + WhiteNoise\nEnvironment-managed secrets"];
+ db [label="«node» Managed PostgreSQL\nPersistent database storage\nFKs, indexes, unique constraints, triggers"];
+ backup [shape=cylinder,label="Encrypted backup storage\npg_dump / provider recovery"];
+ release [shape=component,label="Release job\nmigrate --noinput\nbootstrap only on first deployment"];
+ client -> proxy [label="HTTPS :443"];proxy -> app [label="trusted forwarded scheme"];app -> db [label="private DB connection :5432"];db -> backup [label="scheduled backups"];release -> db [label="versioned schema migration"];
+ note [shape=note,label="Prepared topology in render.yaml and Docker Compose.\nNot yet deployed: workspace hosting access is blocked.\nLocal verification uses persistent PostgreSQL on loopback.\nProduction refuses SQLite and missing secrets."];
+}

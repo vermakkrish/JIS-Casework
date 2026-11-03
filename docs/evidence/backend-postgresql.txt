@@ -1,0 +1,33 @@
+Final local Django test run. Expected rejection traces omitted; individual result lines retained.
+
+test_R1_case_registration_and_unique_cin (core.tests.test_workflows.Workflows.test_R1_case_registration_and_unique_cin) ... ok
+test_R1_validation_and_unauthorized (core.tests.test_workflows.Workflows.test_R1_validation_and_unauthorized) ... ok
+test_R2_bad_slot_and_future_summary (core.tests.test_workflows.Workflows.test_R2_bad_slot_and_future_summary) ... ok
+test_R2_schedule_conflict_and_relationship (core.tests.test_workflows.Workflows.test_R2_schedule_conflict_and_relationship) ... ok
+test_R3_reschedule_adjourn_history (core.tests.test_workflows.Workflows.test_R3_reschedule_adjourn_history) ... ok
+test_R4_hearing_must_belong_to_case (core.tests.test_workflows.Workflows.test_R4_hearing_must_belong_to_case) ... ok
+test_R4_summary_attribution_and_immutable (core.tests.test_workflows.Workflows.test_R4_summary_attribution_and_immutable) ... ok
+test_R5_atomic_judgment_and_closed_guard (core.tests.test_workflows.Workflows.test_R5_atomic_judgment_and_closed_guard) ... ok
+test_R5_requires_no_booked_hearing (core.tests.test_workflows.Workflows.test_R5_requires_no_booked_hearing) ... ok
+test_R5_rollback_if_audit_fails (core.tests.test_workflows.Workflows.test_R5_rollback_if_audit_fails) ... ok
+test_R6_access_filter_search_and_idor (core.tests.test_workflows.Workflows.test_R6_access_filter_search_and_idor) ... ok
+test_R7_create_deactivate_and_session_revocation (core.tests.test_workflows.Workflows.test_R7_create_deactivate_and_session_revocation) ... ok
+test_R7_disallows_registrar_creation_and_deactivation (core.tests.test_workflows.Workflows.test_R7_disallows_registrar_creation_and_deactivation) ... ok
+test_R7_preserve_history_and_reassign_judge (core.tests.test_workflows.Workflows.test_R7_preserve_history_and_reassign_judge) ... ok
+test_assignment_conflict_rolls_back_all_changes (core.tests.test_workflows.Workflows.test_assignment_conflict_rolls_back_all_changes) ... ok
+test_availability_scoped_and_weekends (core.tests.test_workflows.Workflows.test_availability_scoped_and_weekends) ... ok
+test_backend_role_denials (core.tests.test_workflows.Workflows.test_backend_role_denials) ... ok
+test_csrf_required_and_logout_post_only (core.tests.test_workflows.Workflows.test_csrf_required_and_logout_post_only) ... ok
+test_database_guards_independent_of_service (core.tests.test_workflows.Workflows.test_database_guards_independent_of_service) ... ok
+test_foreign_keys_and_representation_uniqueness (core.tests.test_workflows.Workflows.test_foreign_keys_and_representation_uniqueness) ... ok
+test_inactive_actor_and_target_rejected (core.tests.test_workflows.Workflows.test_inactive_actor_and_target_rejected) ... ok
+test_login_rate_limit (core.tests.test_workflows.Workflows.test_login_rate_limit) ... ok
+test_search_invalid_dates_and_pagination (core.tests.test_workflows.Workflows.test_search_invalid_dates_and_pagination) ... ok
+test_stale_form_rejected (core.tests.test_workflows.Workflows.test_stale_form_rejected) ... ok
+test_validation_http_and_xss_escaping (core.tests.test_workflows.Workflows.test_validation_http_and_xss_escaping) ... ok
+test_concurrent_cins (core.tests.test_workflows.ConcurrentWorkflows.test_concurrent_cins) ... ok
+test_concurrent_slot_has_exactly_one_winner (core.tests.test_workflows.ConcurrentWorkflows.test_concurrent_slot_has_exactly_one_winner) ... ok
+Ran 27 tests in 3.794s
+OK
+Destroying test database for alias 'default' ('test_jis')...
+System check identified no issues (0 silenced).

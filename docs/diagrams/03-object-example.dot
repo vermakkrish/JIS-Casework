@@ -1,0 +1,12 @@
+digraph Object {
+ graph [rankdir=LR,pad=.4]; node [shape=box,fontname="Arial",fontsize=11,style="rounded,filled",fillcolor="#f7f9f2",color="#456451"];edge [fontname="Arial",fontsize=10,color="#71856c"];
+ r [label="registrar : User\nname = Avery Sen\nrole = REGISTRAR\nactive = true"];
+ j [label="judge : User\nname = Mira Dev\nrole = JUDGE\nactive = true"];
+ l [label="lawyer : User\nname = Rohan Vale\nrole = LAWYER\nactive = true"];
+ c [label="case : Case\nCIN = JIS-2026-7F3A19BC002D\ntitle = Willow Studio v. Cedar Works\nstatus = CLOSED\nclosed_at = 2026-10-19 11:00Z"];
+ a [label="representation : Representation\ncase = case\nlawyer = lawyer\nassigned_by = registrar"];
+ h [label="hearing : Hearing\nstatus = COMPLETED\nstarts_at = 2026-10-19 04:30Z\nsummary = Fictional positions recorded\nsummary_by = judge"];
+ v [label="judgment : Judgment\nverdict = Demonstration resolved\nsummary = Fictional final outcome\ncreated_at = 2026-10-19 11:00Z"];
+ r -> c [label="registered"];j -> c [label="assigned"];l -> a [label="represents"];a -> c;r -> a [label="assigned"];c -> h [label="has"];c -> v [label="has exactly one"];j -> v [label="recorded"];
+ note [shape=note,label="Illustrative consistent snapshot, not fixed seed IDs.\nAll parties and outcomes are fictional.\nNo statutory or official affiliation claims."];
+}

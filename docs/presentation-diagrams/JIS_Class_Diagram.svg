@@ -1,0 +1,222 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2300" height="2700" viewBox="0 0 2300 2700"><defs><marker id="open" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="9" markerHeight="9" orient="auto"><path d="M1 1 L11 6 L1 11" fill="none" stroke="#222" stroke-width="1.5"/></marker></defs><rect width="2300" height="2700" fill="white"/><style>text{font-family:Arial,Helvetica,sans-serif;fill:#171717}.line{fill:none;stroke:#292929;stroke-width:1.8}.box{fill:#fffbdc;stroke:#292929;stroke-width:1.8}</style>
+<rect x="14" y="14" width="2272" height="2672" fill="none" stroke="#222" stroke-width="2"/><path d="M14 14 H880 V48 L860 68 H14 Z" fill="#f5f5f5" stroke="#222" stroke-width="1.5"/>
+<text x="32" y="49" font-size="28" font-weight="bold" text-anchor="start">class  Judiciary Information System — implementation model</text>
+<polyline class="line" points="680,750 850,750"/>
+<text x="765" y="722" font-size="21" font-weight="normal" text-anchor="middle">representations</text>
+<text x="696" y="779" font-size="21" font-weight="normal" text-anchor="start">1</text>
+<text x="792" y="779" font-size="21" font-weight="normal" text-anchor="start">0..*</text>
+<polyline class="line" points="370,1076 370,1220"/>
+<text x="463" y="1151" font-size="21" font-weight="normal" text-anchor="middle">hearings</text>
+<text x="390" y="1105" font-size="22" font-weight="normal" text-anchor="start">1</text>
+<text x="390" y="1205" font-size="22" font-weight="normal" text-anchor="start">0..*</text>
+<polyline class="line" points="680,1390 850,1390"/>
+<text x="765" y="1364" font-size="21" font-weight="normal" text-anchor="middle">changes</text>
+<text x="695" y="1420" font-size="21" font-weight="normal" text-anchor="start">1</text>
+<text x="792" y="1420" font-size="21" font-weight="normal" text-anchor="start">0..*</text>
+<polyline class="line" points="680,600 730,600 730,490 1920,490 1920,540"/>
+<text x="1550" y="477" font-size="21" font-weight="normal" text-anchor="middle">events</text>
+<text x="690" y="585" font-size="21" font-weight="normal" text-anchor="start">0..1</text>
+<text x="1940" y="530" font-size="21" font-weight="normal" text-anchor="start">0..*</text>
+<polyline class="line" points="600,1076 600,1165 1520,1165 1520,1360 1610,1360"/>
+<text x="1080" y="1152" font-size="21" font-weight="normal" text-anchor="middle">judgment</text>
+<text x="620" y="1105" font-size="22" font-weight="normal" text-anchor="start">1</text>
+<text x="1552" y="1340" font-size="22" font-weight="normal" text-anchor="start">0..1</text>
+<polyline class="line" stroke-dasharray="8 6" marker-end="url(#open)" points="680,225 790,225"/>
+<text x="734" y="211" font-size="21" font-weight="normal" text-anchor="middle">role</text>
+<rect class="box" x="60" y="110" width="620" height="420"/>
+<text x="370.0" y="135" font-size="21" font-weight="normal" text-anchor="middle">«model»</text>
+<text x="370.0" y="166" font-size="28" font-weight="bold" text-anchor="middle">User</text>
+<path class="line" d="M60 180 H680"/>
+<text x="78" y="211" font-size="24" font-weight="normal" text-anchor="start">id : BigInt {PK, inherited}</text>
+<text x="78" y="241" font-size="24" font-weight="normal" text-anchor="start">username : String(150) {unique, inherited}</text>
+<text x="78" y="271" font-size="24" font-weight="normal" text-anchor="start">email : String(254) {unique}</text>
+<text x="78" y="301" font-size="24" font-weight="normal" text-anchor="start">name : String(100)</text>
+<text x="78" y="331" font-size="24" font-weight="normal" text-anchor="start">password : String(128) {encoded hash, inherited}</text>
+<text x="78" y="361" font-size="24" font-weight="normal" text-anchor="start">is_active : Boolean {inherited}</text>
+<text x="78" y="391" font-size="24" font-weight="normal" text-anchor="start">role : User.Role</text>
+<text x="78" y="421" font-size="24" font-weight="normal" text-anchor="start">last_login : DateTime [0..1] {inherited}</text>
+<text x="78" y="451" font-size="24" font-weight="normal" text-anchor="start">date_joined : DateTime {inherited}</text>
+<path class="line" d="M60 460 H680"/>
+<text x="78" y="486" font-size="21" font-weight="normal" text-anchor="start">Extends Django AbstractUser; selected inherited fields.</text>
+<text x="78" y="513" font-size="21" font-weight="normal" text-anchor="start">Other framework fields/operations are omitted.</text>
+<rect class="box" x="790" y="110" width="300" height="176"/>
+<text x="940.0" y="135" font-size="21" font-weight="normal" text-anchor="middle">«enumeration»</text>
+<text x="940.0" y="166" font-size="28" font-weight="bold" text-anchor="middle">User.Role</text>
+<path class="line" d="M790 180 H1090"/>
+<text x="808" y="211" font-size="24" font-weight="normal" text-anchor="start">REGISTRAR</text>
+<text x="808" y="241" font-size="24" font-weight="normal" text-anchor="start">JUDGE</text>
+<text x="808" y="271" font-size="24" font-weight="normal" text-anchor="start">LAWYER</text>
+<rect class="box" x="1170" y="110" width="280" height="146"/>
+<text x="1310.0" y="135" font-size="21" font-weight="normal" text-anchor="middle">«enumeration»</text>
+<text x="1310.0" y="166" font-size="28" font-weight="bold" text-anchor="middle">Case.Kind</text>
+<path class="line" d="M1170 180 H1450"/>
+<text x="1188" y="211" font-size="24" font-weight="normal" text-anchor="start">CIVIL</text>
+<text x="1188" y="241" font-size="24" font-weight="normal" text-anchor="start">CRIMINAL</text>
+<rect class="box" x="1530" y="110" width="310" height="206"/>
+<text x="1685.0" y="135" font-size="21" font-weight="normal" text-anchor="middle">«enumeration»</text>
+<text x="1685.0" y="166" font-size="28" font-weight="bold" text-anchor="middle">Case.Status</text>
+<path class="line" d="M1530 180 H1840"/>
+<text x="1548" y="211" font-size="24" font-weight="normal" text-anchor="start">REGISTERED</text>
+<text x="1548" y="241" font-size="24" font-weight="normal" text-anchor="start">PENDING</text>
+<text x="1548" y="271" font-size="24" font-weight="normal" text-anchor="start">IN_PROGRESS</text>
+<text x="1548" y="301" font-size="24" font-weight="normal" text-anchor="start">CLOSED</text>
+<rect class="box" x="1920" y="110" width="310" height="206"/>
+<text x="2075.0" y="135" font-size="21" font-weight="normal" text-anchor="middle">«enumeration»</text>
+<text x="2075.0" y="166" font-size="28" font-weight="bold" text-anchor="middle">Hearing.Status</text>
+<path class="line" d="M1920 180 H2230"/>
+<text x="1938" y="211" font-size="24" font-weight="normal" text-anchor="start">SCHEDULED</text>
+<text x="1938" y="241" font-size="24" font-weight="normal" text-anchor="start">RESCHEDULED</text>
+<text x="1938" y="271" font-size="24" font-weight="normal" text-anchor="start">ADJOURNED</text>
+<text x="1938" y="301" font-size="24" font-weight="normal" text-anchor="start">COMPLETED</text>
+<path d="M790 350 H2212 L2230 368 V464 H790 Z M2212 350 V368 H2230" fill="#fffef1" stroke="#555" stroke-width="1.3"/>
+<text x="807" y="380" font-size="22" font-weight="normal" text-anchor="start">User links are typed association properties below; each reverse multiplicity is 0..*.</text>
+<text x="807" y="408" font-size="22" font-weight="normal" text-anchor="start">[1] = required reference; [0..1] = nullable. Role restrictions are enforced by services.</text>
+<text x="807" y="436" font-size="22" font-weight="normal" text-anchor="start">DateTime = timezone-aware (UTC storage; Asia/Kolkata display). PK/FK = database keys.</text>
+<rect class="box" x="60" y="540" width="620" height="536"/>
+<text x="370.0" y="565" font-size="21" font-weight="normal" text-anchor="middle">«model»</text>
+<text x="370.0" y="596" font-size="28" font-weight="bold" text-anchor="middle">Case</text>
+<path class="line" d="M60 610 H680"/>
+<text x="78" y="641" font-size="24" font-weight="normal" text-anchor="start">id : UUID {PK}</text>
+<text x="78" y="671" font-size="24" font-weight="normal" text-anchor="start">cin : String(40) {unique}</text>
+<text x="78" y="701" font-size="24" font-weight="normal" text-anchor="start">title : String(180)</text>
+<text x="78" y="731" font-size="24" font-weight="normal" text-anchor="start">kind : Case.Kind</text>
+<text x="78" y="761" font-size="24" font-weight="normal" text-anchor="start">claimant : String(120)</text>
+<text x="78" y="791" font-size="24" font-weight="normal" text-anchor="start">respondent : String(120)</text>
+<text x="78" y="821" font-size="24" font-weight="normal" text-anchor="start">description : Text(5000)</text>
+<text x="78" y="851" font-size="24" font-weight="normal" text-anchor="start">filed_on : Date</text>
+<text x="78" y="881" font-size="24" font-weight="normal" text-anchor="start">status : Case.Status = REGISTERED</text>
+<text x="78" y="911" font-size="24" font-weight="normal" text-anchor="start">judge : User [1] {FK; role = JUDGE}</text>
+<text x="78" y="941" font-size="24" font-weight="normal" text-anchor="start">registrar : User [1] {FK; role = REGISTRAR}</text>
+<text x="78" y="971" font-size="24" font-weight="normal" text-anchor="start">lawyers : User [0..*] {through Representation}</text>
+<text x="78" y="1001" font-size="24" font-weight="normal" text-anchor="start">created_at : DateTime</text>
+<text x="78" y="1031" font-size="24" font-weight="normal" text-anchor="start">closed_at : DateTime [0..1]</text>
+<text x="78" y="1061" font-size="24" font-weight="normal" text-anchor="start">version : PositiveInteger = 1</text>
+<rect class="box" x="850" y="540" width="580" height="273"/>
+<text x="1140.0" y="565" font-size="21" font-weight="normal" text-anchor="middle">«model»</text>
+<text x="1140.0" y="596" font-size="28" font-weight="bold" text-anchor="middle">Representation</text>
+<path class="line" d="M850 610 H1430"/>
+<text x="868" y="641" font-size="24" font-weight="normal" text-anchor="start">id : BigInt {PK}</text>
+<text x="868" y="671" font-size="24" font-weight="normal" text-anchor="start">case : Case [1] {FK}</text>
+<text x="868" y="701" font-size="24" font-weight="normal" text-anchor="start">lawyer : User [1] {FK; role = LAWYER}</text>
+<text x="868" y="731" font-size="24" font-weight="normal" text-anchor="start">assigned_by : User [1] {FK; Registrar}</text>
+<text x="868" y="761" font-size="24" font-weight="normal" text-anchor="start">assigned_at : DateTime</text>
+<path class="line" d="M850 770 H1430"/>
+<text x="868" y="796" font-size="21" font-weight="normal" text-anchor="start">{unique(case, lawyer)}</text>
+<rect class="box" x="1610" y="540" width="620" height="303"/>
+<text x="1920.0" y="565" font-size="21" font-weight="normal" text-anchor="middle">«model»</text>
+<text x="1920.0" y="596" font-size="28" font-weight="bold" text-anchor="middle">AuditEvent</text>
+<path class="line" d="M1610 610 H2230"/>
+<text x="1628" y="641" font-size="24" font-weight="normal" text-anchor="start">id : BigInt {PK}</text>
+<text x="1628" y="671" font-size="24" font-weight="normal" text-anchor="start">case : Case [0..1] {FK}</text>
+<text x="1628" y="701" font-size="24" font-weight="normal" text-anchor="start">actor : User [1] {FK}</text>
+<text x="1628" y="731" font-size="24" font-weight="normal" text-anchor="start">action : String(60)</text>
+<text x="1628" y="761" font-size="24" font-weight="normal" text-anchor="start">detail : Text(3000)</text>
+<text x="1628" y="791" font-size="24" font-weight="normal" text-anchor="start">created_at : DateTime</text>
+<path class="line" d="M1610 800 H2230"/>
+<text x="1628" y="826" font-size="21" font-weight="normal" text-anchor="start">Case is null for account-management events.</text>
+<path d="M850 900 H1412 L1430 918 V1098 H850 Z M1412 900 V918 H1430" fill="#fffef1" stroke="#555" stroke-width="1.3"/>
+<text x="867" y="930" font-size="22" font-weight="normal" text-anchor="start">Representation stores current membership.</text>
+<text x="867" y="958" font-size="22" font-weight="normal" text-anchor="start">Register/reassign: at least one active Lawyer</text>
+<text x="867" y="986" font-size="22" font-weight="normal" text-anchor="start">and one active Judge are required.</text>
+<text x="867" y="1014" font-size="22" font-weight="normal" text-anchor="start">Removed links are deleted; assignment changes</text>
+<text x="867" y="1042" font-size="22" font-weight="normal" text-anchor="start">remain attributed in AuditEvent.</text>
+<text x="867" y="1070" font-size="22" font-weight="normal" text-anchor="start">Later deactivation does not erase attribution.</text>
+<path d="M1610 940 H2212 L2230 958 V1082 H1610 Z M2212 940 V958 H2230" fill="#fffef1" stroke="#555" stroke-width="1.3"/>
+<text x="1627" y="970" font-size="22" font-weight="normal" text-anchor="start">Case has one Registrar and one current Judge.</text>
+<text x="1627" y="998" font-size="22" font-weight="normal" text-anchor="start">User roles are values, not subclasses/tables.</text>
+<text x="1627" y="1026" font-size="22" font-weight="normal" text-anchor="start">judge_id is a User FK, not a professional ID.</text>
+<text x="1627" y="1054" font-size="22" font-weight="normal" text-anchor="start">No employeeId or barCouncilId is modeled.</text>
+<rect class="box" x="60" y="1220" width="620" height="356"/>
+<text x="370.0" y="1245" font-size="21" font-weight="normal" text-anchor="middle">«model»</text>
+<text x="370.0" y="1276" font-size="28" font-weight="bold" text-anchor="middle">Hearing</text>
+<path class="line" d="M60 1290 H680"/>
+<text x="78" y="1321" font-size="24" font-weight="normal" text-anchor="start">id : BigInt {PK}</text>
+<text x="78" y="1351" font-size="24" font-weight="normal" text-anchor="start">case : Case [1] {FK}</text>
+<text x="78" y="1381" font-size="24" font-weight="normal" text-anchor="start">judge : User [1] {FK; role = JUDGE}</text>
+<text x="78" y="1411" font-size="24" font-weight="normal" text-anchor="start">starts_at : DateTime [0..1]</text>
+<text x="78" y="1441" font-size="24" font-weight="normal" text-anchor="start">status : Hearing.Status = SCHEDULED</text>
+<text x="78" y="1471" font-size="24" font-weight="normal" text-anchor="start">summary : Text(10000) {blank until completed}</text>
+<text x="78" y="1501" font-size="24" font-weight="normal" text-anchor="start">summary_by : User [0..1] {FK; Judge}</text>
+<text x="78" y="1531" font-size="24" font-weight="normal" text-anchor="start">completed_at : DateTime [0..1]</text>
+<text x="78" y="1561" font-size="24" font-weight="normal" text-anchor="start">created_at : DateTime</text>
+<rect class="box" x="850" y="1220" width="580" height="356"/>
+<text x="1140.0" y="1245" font-size="21" font-weight="normal" text-anchor="middle">«model»</text>
+<text x="1140.0" y="1276" font-size="28" font-weight="bold" text-anchor="middle">HearingChange</text>
+<path class="line" d="M850 1290 H1430"/>
+<text x="868" y="1321" font-size="24" font-weight="normal" text-anchor="start">id : BigInt {PK}</text>
+<text x="868" y="1351" font-size="24" font-weight="normal" text-anchor="start">hearing : Hearing [1] {FK}</text>
+<text x="868" y="1381" font-size="24" font-weight="normal" text-anchor="start">actor : User [1] {FK}</text>
+<text x="868" y="1411" font-size="24" font-weight="normal" text-anchor="start">old_status : String(16) {initially blank}</text>
+<text x="868" y="1441" font-size="24" font-weight="normal" text-anchor="start">new_status : String(16)</text>
+<text x="868" y="1471" font-size="24" font-weight="normal" text-anchor="start">old_time : DateTime [0..1]</text>
+<text x="868" y="1501" font-size="24" font-weight="normal" text-anchor="start">new_time : DateTime [0..1]</text>
+<text x="868" y="1531" font-size="24" font-weight="normal" text-anchor="start">reason : Text(1000)</text>
+<text x="868" y="1561" font-size="24" font-weight="normal" text-anchor="start">created_at : DateTime</text>
+<rect class="box" x="1610" y="1220" width="620" height="303"/>
+<text x="1920.0" y="1245" font-size="21" font-weight="normal" text-anchor="middle">«model»</text>
+<text x="1920.0" y="1276" font-size="28" font-weight="bold" text-anchor="middle">Judgment</text>
+<path class="line" d="M1610 1290 H2230"/>
+<text x="1628" y="1321" font-size="24" font-weight="normal" text-anchor="start">id : BigInt {PK}</text>
+<text x="1628" y="1351" font-size="24" font-weight="normal" text-anchor="start">case : Case [1] {unique FK}</text>
+<text x="1628" y="1381" font-size="24" font-weight="normal" text-anchor="start">judge : User [1] {FK; author, Judge}</text>
+<text x="1628" y="1411" font-size="24" font-weight="normal" text-anchor="start">verdict : String(200)</text>
+<text x="1628" y="1441" font-size="24" font-weight="normal" text-anchor="start">summary : Text(10000)</text>
+<text x="1628" y="1471" font-size="24" font-weight="normal" text-anchor="start">created_at : DateTime</text>
+<path class="line" d="M1610 1480 H2230"/>
+<text x="1628" y="1506" font-size="21" font-weight="normal" text-anchor="start">{one Judgment per Case; immutable after saving}</text>
+<path d="M60 1620 H1412 L1430 1638 V1818 H60 Z M1412 1620 V1638 H1430" fill="#fffef1" stroke="#555" stroke-width="1.3"/>
+<text x="77" y="1650" font-size="22" font-weight="normal" text-anchor="start">Booked = SCHEDULED or RESCHEDULED. Unique (judge, starts_at) while booked;</text>
+<text x="77" y="1678" font-size="22" font-weight="normal" text-anchor="start">at most one booked Hearing per Case. Historical hearings have no fixed upper limit.</text>
+<text x="77" y="1706" font-size="22" font-weight="normal" text-anchor="start">ADJOURNED ⇒ starts_at is null; otherwise a timestamp is required.</text>
+<text x="77" y="1734" font-size="22" font-weight="normal" text-anchor="start">COMPLETED ⇔ nonempty summary, summary_by and completed_at are present.</text>
+<text x="77" y="1762" font-size="22" font-weight="normal" text-anchor="start">Other states have blank summary and null summary_by / completed_at.</text>
+<text x="77" y="1790" font-size="22" font-weight="normal" text-anchor="start">HearingChange preserves old/new status and time, reason, actor and timestamp.</text>
+<rect class="box" x="1610" y="1630" width="620" height="176"/>
+<text x="1920.0" y="1655" font-size="21" font-weight="normal" text-anchor="middle">«supporting security model»</text>
+<text x="1920.0" y="1686" font-size="28" font-weight="bold" text-anchor="middle">LoginThrottle</text>
+<path class="line" d="M1610 1700 H2230"/>
+<text x="1628" y="1731" font-size="24" font-weight="normal" text-anchor="start">key : String(64) {PK; hashed throttle key}</text>
+<text x="1628" y="1761" font-size="24" font-weight="normal" text-anchor="start">attempts : PositiveInteger = 0</text>
+<text x="1628" y="1791" font-size="24" font-weight="normal" text-anchor="start">expires_at : DateTime</text>
+<rect class="box" x="60" y="1890" width="1140" height="417"/>
+<text x="630.0" y="1915" font-size="21" font-weight="normal" text-anchor="middle">«module • selected workflow functions»</text>
+<text x="630.0" y="1946" font-size="28" font-weight="bold" text-anchor="middle">core.services</text>
+<path class="line" d="M60 1960 H1200"/>
+<text x="78" y="1991" font-size="24" font-weight="normal" text-anchor="start">+ register_case(actor, data)</text>
+<text x="78" y="2021" font-size="24" font-weight="normal" text-anchor="start">+ update_assignments(actor, pk, version, judge, lawyers, reason)</text>
+<text x="78" y="2051" font-size="24" font-weight="normal" text-anchor="start">+ schedule(actor, pk, version, starts_at)</text>
+<text x="78" y="2081" font-size="24" font-weight="normal" text-anchor="start">+ change_hearing(actor, pk, hearing_id, version, action, reason, starts_at=None)</text>
+<text x="78" y="2111" font-size="24" font-weight="normal" text-anchor="start">+ record_summary(actor, pk, hearing_id, version, summary)</text>
+<text x="78" y="2141" font-size="24" font-weight="normal" text-anchor="start">+ record_judgment(actor, pk, version, verdict, summary)</text>
+<text x="78" y="2171" font-size="24" font-weight="normal" text-anchor="start">+ search(user, data) / get_case(user, pk)</text>
+<text x="78" y="2201" font-size="24" font-weight="normal" text-anchor="start">+ create_account(actor, data) / deactivate(actor, pk, reason)</text>
+<path class="line" d="M60 2210 H1200"/>
+<text x="78" y="2236" font-size="21" font-weight="normal" text-anchor="start">record_judgment stores judgment + closes Case + writes audit in one transaction.</text>
+<text x="78" y="2263" font-size="21" font-weight="normal" text-anchor="start">No separate closeCase(), reopen(), general updateCase() or updateProfile().</text>
+<text x="78" y="2290" font-size="21" font-weight="normal" text-anchor="start">change_hearing handles rescheduling and adjournment; views pass the action.</text>
+<rect class="box" x="1440" y="1900" width="790" height="176"/>
+<text x="1835.0" y="1925" font-size="21" font-weight="normal" text-anchor="middle">«data-access module • selected functions»</text>
+<text x="1835.0" y="1956" font-size="28" font-weight="bold" text-anchor="middle">core.repository / Django ORM</text>
+<path class="line" d="M1440 1970 H2230"/>
+<text x="1458" y="2001" font-size="24" font-weight="normal" text-anchor="start">atomic(), lock_case(), lock_users()</text>
+<text x="1458" y="2031" font-size="24" font-weight="normal" text-anchor="start">create_case(), set_lawyers(), create_judgment()</text>
+<text x="1458" y="2061" font-size="24" font-weight="normal" text-anchor="start">audit(), history(), visible_cases(), booked()</text>
+<polyline class="line" stroke-dasharray="8 6" marker-end="url(#open)" points="1200,1995 1440,1995"/>
+<text x="1320" y="1979" font-size="21" font-weight="normal" text-anchor="middle">uses</text>
+<rect class="box" x="1440" y="2160" width="790" height="206"/>
+<text x="1835.0" y="2185" font-size="21" font-weight="normal" text-anchor="middle">«framework responsibility»</text>
+<text x="1835.0" y="2216" font-size="28" font-weight="bold" text-anchor="middle">Django authentication</text>
+<path class="line" d="M1440 2230 H2230"/>
+<text x="1458" y="2261" font-size="24" font-weight="normal" text-anchor="start">Login / logout through core.views and Django auth</text>
+<text x="1458" y="2291" font-size="24" font-weight="normal" text-anchor="start">Own-password change: PasswordChangeView</text>
+<text x="1458" y="2321" font-size="24" font-weight="normal" text-anchor="start">Operator recovery: changepassword command</text>
+<text x="1458" y="2351" font-size="24" font-weight="normal" text-anchor="start">Database-backed sessions; active-user authentication</text>
+<path d="M60 2420 H2212 L2230 2438 V2646 H60 Z M2212 2420 V2438 H2230" fill="#fffef1" stroke="#555" stroke-width="1.3"/>
+<text x="77" y="2450" font-size="22" font-weight="normal" text-anchor="start">Retention: every domain FK shown uses PROTECT; no normal hard-delete workflow. Account removal means deactivation, preserving records.</text>
+<text x="77" y="2478" font-size="22" font-weight="normal" text-anchor="start">Closure: CLOSED ⇔ one Judgment and closed_at present. Judgment insertion triggers closure; service transaction includes audit and rollback.</text>
+<text x="77" y="2506" font-size="22" font-weight="normal" text-anchor="start">Closed cases cannot be reopened or changed through normal workflows; completed summaries and judgments remain immutable.</text>
+<text x="77" y="2534" font-size="22" font-weight="normal" text-anchor="start">Reassignment moves booked hearings only if conflict-free; completed hearing / judgment authorship stays unchanged. version rejects stale updates.</text>
+<text x="77" y="2562" font-size="22" font-weight="normal" text-anchor="start">Layering: views/forms → business services → repository/ORM → PostgreSQL. Django handles authentication/password flows separately.</text>
+<text x="77" y="2590" font-size="22" font-weight="normal" text-anchor="start">Fields use actual model names; references are model properties (physical FK columns end in _id). String/Text lengths are declared limits.</text>
+<text x="77" y="2618" font-size="22" font-weight="normal" text-anchor="start">No composition diamonds: ownership does not imply cascading deletion. Framework session internals and routine ORM methods are omitted.</text>
+</svg>

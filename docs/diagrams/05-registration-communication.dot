@@ -1,0 +1,9 @@
+digraph Communication {
+ graph [rankdir=LR,pad=.4]; node [shape=box,fontname="Arial",fontsize=11,style=filled,fillcolor="#f7f9f2",color="#456451"];edge [fontname="Arial",fontsize=10,color="#71856c"];
+ r [label="registrar : User"];ui [label="form : Presentation"];v [label="case_new : HTTP view"];s [label="register_case : Service"];rep [label="repository : Data access"];db [label="database : PostgreSQL"];
+ r -> ui [label="1 enter details"];ui -> v [label="2 POST details + CSRF"];v -> s [label="3 authorize and validate form"];
+ s -> s [label="3.1 validate business rules\n3.2 generate CIN"];
+ s -> rep [label="3.3 atomic create case,\nrepresentations and audit"];
+ rep -> db [label="3.3.1 lock users; INSERTs; COMMIT"];
+ db -> rep [label="3.3.2 persisted data / error",style=dashed];rep -> s [label="3.4 case",style=dashed];s -> v [label="4 registration result",style=dashed];v -> ui [label="5 redirect and confirmation",style=dashed];ui -> r [label="6 display saved CIN",style=dashed];
+}

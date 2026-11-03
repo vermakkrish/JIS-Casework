@@ -1,0 +1,65 @@
+{
+  "renderer": "@viz-js/viz (Graphviz)",
+  "diagrams": [
+    {
+      "source": "01-use-case.dot",
+      "render": "01-use-case.svg",
+      "status": "PASS"
+    },
+    {
+      "source": "02-domain.dot",
+      "render": "02-domain.svg",
+      "status": "PASS"
+    },
+    {
+      "source": "03-object-example.dot",
+      "render": "03-object-example.svg",
+      "status": "PASS"
+    },
+    {
+      "source": "04-registration-sequence.dot",
+      "render": "04-registration-sequence.svg",
+      "status": "PASS"
+    },
+    {
+      "source": "05-registration-communication.dot",
+      "render": "05-registration-communication.svg",
+      "status": "PASS"
+    },
+    {
+      "source": "06-registration-activity.dot",
+      "render": "06-registration-activity.svg",
+      "status": "PASS"
+    },
+    {
+      "source": "07-state-machines.dot",
+      "render": "07-state-machines.svg",
+      "status": "PASS"
+    },
+    {
+      "source": "08-package.dot",
+      "render": "08-package.svg",
+      "status": "PASS"
+    },
+    {
+      "source": "09-component.dot",
+      "render": "09-component.svg",
+      "status": "PASS"
+    },
+    {
+      "source": "10-deployment.dot",
+      "render": "10-deployment.svg",
+      "status": "PASS"
+    },
+    {
+      "source": "11-data-flow-context.dot",
+      "render": "11-data-flow-context.svg",
+      "status": "PASS"
+    },
+    {
+      "source": "12-data-flow-level-one.dot",
+      "render": "12-data-flow-level-one.svg",
+      "status": "PASS"
+    }
+  ]
+}

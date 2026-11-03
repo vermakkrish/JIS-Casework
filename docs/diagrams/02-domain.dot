@@ -1,0 +1,20 @@
+digraph Domain {
+ graph [rankdir=LR,pad=.3,ranksep=1]; node [shape=record,fontname="Arial",fontsize=10,style=filled,fillcolor="#f7f9f2",color="#456451"]; edge [fontname="Arial",fontsize=9,color="#71856c"];
+ User [label="{User|id · name · email UNIQUE\lpassword hash · active\lrole: Registrar / Judge / Lawyer\l}"];
+ Case [label="{Case|UUID PK · CIN UNIQUE\ltitle · kind · parties · description\lfiling date · status · version\lcreated_at · closed_at\l}"];
+ Representation [label="{Representation|case FK · lawyer FK\lassigned_by FK · assigned_at\lUNIQUE(case, lawyer)\l}"];
+ Hearing [label="{Hearing|case FK · judge FK\lstarts_at UTC · status\lsummary · summary_by FK\lcompleted_at\l}"];
+ Change [label="{HearingChange|hearing FK · actor FK\lold/new status and time\lreason · created_at\l}"];
+ Judgment [label="{Judgment|case UNIQUE FK · judge FK\lverdict · summary · created_at\l}"];
+ Audit [label="{AuditEvent|case nullable FK · actor FK\laction · detail · created_at\l}"];
+ Session [label="{Django Session|session key · signed session data\lexpiry · authenticated user ID\l}"];
+ Throttle [label="{LoginThrottle|hashed key PK · attempts\lexpires_at\l}"];
+ User -> Case [label="Judge 1 : 0..* assigned\nRegistrar 1 : 0..* registered"];
+ User -> Representation [label="Lawyer 1 : 0..*"]; Case -> Representation [label="1 : 1..* active assignments"];
+ Case -> Hearing [label="1 : 0..*"]; Hearing -> Change [label="1 : 1..*"];
+ Case -> Judgment [label="1 : 0..1\nINSERT closes case"];
+ Case -> Audit [label="1 : 0..*"]; User -> Audit [label="actor 1 : 0..*"];
+ User -> Hearing [label="Judge / summary author"]; User -> Judgment [label="author 1 : 0..*"];
+ User -> Session [style=dashed,label="authenticated session\nactive status checked per request"];
+ Note [shape=note,label="Booked hearings: UNIQUE(Judge, start)\nOne booked hearing per Case\nProtected historical user references\nNo User subclasses: exactly three role values"];
+}

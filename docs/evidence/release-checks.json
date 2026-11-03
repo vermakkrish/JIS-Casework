@@ -1,0 +1,26 @@
+[
+  {
+    "command": "python manage.py check --deploy --fail-level WARNING",
+    "exit_code": 0,
+    "stdout": "System check identified no issues (0 silenced).",
+    "stderr": ""
+  },
+  {
+    "command": "python manage.py makemigrations --check --dry-run",
+    "exit_code": 0,
+    "stdout": "No changes detected",
+    "stderr": ""
+  },
+  {
+    "command": "python manage.py collectstatic --noinput",
+    "exit_code": 0,
+    "stdout": "1 static file copied to 'C:\\Users\\Kkrish Verma\\Documents\\Codex\\2026-10-19\\you-are-codex-using-the-astra\\outputs\\jis\\staticfiles', 2 unmodified, 8 post-processed.",
+    "stderr": ""
+  },
+  {
+    "command": "python -m compileall -q config core",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": ""
+  }
+]

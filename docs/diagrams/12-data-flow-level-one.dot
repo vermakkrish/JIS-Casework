@@ -1,0 +1,13 @@
+digraph DFD1 {
+ graph [rankdir=LR,pad=.4];node [fontname="Arial",fontsize=10,color="#456451",style=filled,fillcolor="#f7f9f2"];edge [fontname="Arial",fontsize=9,color="#71856c"];
+ r [shape=box,label="Registrar"];j [shape=box,label="Judge"];l [shape=box,label="Lawyer"];
+ auth [label="1. Authenticate / authorize"];cases [label="2. Register / assign cases"];hearings [label="3. Manage hearings"];judgment [label="4. Record judgment + close"];search [label="5. Search / browse"];accounts [label="6. Manage accounts"];
+ users [shape=cylinder,label="D1 Users / sessions / throttle"];records [shape=cylinder,label="D2 Cases / representations"];schedule [shape=cylinder,label="D3 Hearings / change history"];verdict [shape=cylinder,label="D4 Judgments"];audit [shape=cylinder,label="D5 Audit events"];
+ r -> auth;j -> auth;l -> auth;auth -> users [label="credentials / active identity"];auth -> {cases hearings judgment search accounts} [label="authorized context",style=dashed];
+ r -> cases [label="case + assignments"];cases -> records [label="validated facts / CIN"];cases -> r [label="saved CIN"];
+ r -> hearings [label="slot + reason"];j -> hearings [label="summary"];hearings -> schedule [label="schedule / summary / history"];hearings -> records [label="case state"];hearings -> r [label="schedule confirmation"];hearings -> j [label="completion confirmation"];
+ j -> judgment [label="verdict + summary"];judgment -> verdict [label="judgment"];judgment -> records [label="atomic Closed state"];judgment -> j [label="closed confirmation"];
+ {r j l} -> search [label="queries"];{records schedule verdict audit} -> search [label="scoped records"];search -> {r j l} [label="permitted results"];
+ r -> accounts [label="create / deactivate"];accounts -> users [label="hashed credentials / access flag"];accounts -> r [label="confirmation"];
+ {cases hearings judgment accounts} -> audit [label="attributed event"];
+}

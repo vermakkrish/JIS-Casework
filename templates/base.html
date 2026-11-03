@@ -1,0 +1,14 @@
+{% load static %}<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="light"><title>{% block title %}JIS · Casework{% endblock %}</title><link rel="icon" href="{% static 'mark.svg' %}" type="image/svg+xml"><link rel="stylesheet" href="{% static 'app.css' %}"><script src="{% static 'app.js' %}" defer></script></head>
+<body><a class="skip" href="#main">Skip to content</a>
+{% if user.is_authenticated %}<div class="workspace"><aside class="sidebar"><a class="brand" href="{% url 'dashboard' %}"><span class="mark">J<span>IS</span></span><span>Casework<small>JUDICIARY INFORMATION SYSTEM</small></span></a>
+<div class="workspace-label">YOUR WORKSPACE</div><nav aria-label="Main navigation">
+<a href="{% url 'dashboard' %}" {% if active == 'dashboard' %}aria-current="page"{% endif %}><span aria-hidden="true">◫</span> Overview</a>
+<a href="{% url 'cases' %}" {% if active == 'cases' %}aria-current="page"{% endif %}><span aria-hidden="true">▤</span> Case register</a>
+<a href="{% url 'agenda' %}" {% if active == 'agenda' %}aria-current="page"{% endif %}><span aria-hidden="true">▦</span> Hearing agenda</a>
+{% if user.role == 'REGISTRAR' %}<a href="{% url 'accounts' %}" {% if active == 'accounts' %}aria-current="page"{% endif %}><span aria-hidden="true">♧</span> People & access</a>{% endif %}
+<a href="{% url 'guide' %}" {% if active == 'guide' %}aria-current="page"{% endif %}><span aria-hidden="true">?</span> Workspace guide</a></nav>
+<div class="sidebar-note"><span class="dot"></span> Academic demonstration<p>Fictional records.<br>No official court affiliation.</p></div>
+<div class="identity"><span class="avatar">{{ user.name|slice:':1' }}</span><div><strong>{{ user.name }}</strong><small>{{ user.get_role_display }}</small></div></div><div class="account-links"><a href="{% url 'password' %}">Change password</a><form action="{% url 'logout' %}" method="post">{% csrf_token %}<button class="text-button">Sign out ↗</button></form></div></aside>
+<div class="main-area"><header class="topbar"><span>INTERNAL RECORD MANAGEMENT</span><span class="timezone">Asia/Kolkata <b>IST</b></span></header><main id="main" tabindex="-1">{% if messages %}<div aria-live="polite">{% for message in messages %}<div class="flash {{ message.tags }}" role="status"><span aria-hidden="true">✓</span> {{ message }}</div>{% endfor %}</div>{% endif %}{% block content %}{% endblock %}</main><footer>JIS Casework <span>Clarity in every record.</span><span>Academic project · Fictional data only</span></footer></div></div>
+{% else %}{% block public_content %}{% endblock %}{% endif %}</body></html>

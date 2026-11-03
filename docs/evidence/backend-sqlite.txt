@@ -1,0 +1,6 @@
+Final local Django test run. Expected rejection traces omitted; individual result lines retained.
+
+Ran 27 tests in 0.978s
+OK (skipped=2)
+Destroying test database for alias 'default'...
+System check identified no issues (0 silenced).

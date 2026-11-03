@@ -1,0 +1,6 @@
+digraph Activity {
+ graph [rankdir=TB,pad=.4];node [shape=box,style="rounded,filled",fillcolor="#f7f9f2",fontname="Arial",fontsize=11,color="#456451"];edge [fontname="Arial",fontsize=10,color="#71856c"];
+ start [shape=circle,label="",fillcolor="#214d40",width=.2];end [shape=doublecircle,label="",fillcolor="#214d40",width=.2];
+ enter [label="Registrar enters case facts\nand Judge / Lawyer assignments"];submit [label="Browser submits with CSRF token"];auth [shape=diamond,label="Active Registrar?"];valid [shape=diamond,label="Valid fields and\nactive assignees?"];generate [label="Generate CIN on server"];save [label="Atomic INSERT case, assignments, audit\nDatabase checks foreign keys and uniqueness"];success [shape=diamond,label="Commit succeeds?"];confirm [label="Redirect to detail\nShow persisted CIN and confirmation"];error [label="Show actionable form error\nPreserve entered non-secret fields"];deny [label="Reject with 403 / sign-in redirect"];
+ start -> enter -> submit -> auth;auth -> deny [label="No"];auth -> valid [label="Yes"];valid -> error [label="No"];error -> enter;valid -> generate [label="Yes"];generate -> save -> success;success -> confirm [label="Yes"];success -> error [label="No / rollback"];confirm -> end;deny -> end;
+}

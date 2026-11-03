@@ -1,0 +1,10 @@
+digraph DFD0 {
+ graph [rankdir=LR,pad=.4];node [fontname="Arial",fontsize=11,color="#456451",style=filled,fillcolor="#f7f9f2"];edge [fontname="Arial",fontsize=10,color="#71856c"];
+ r [shape=box,label="Registrar"];j [shape=box,label="Judge"];l [shape=box,label="Lawyer"];jis [shape=ellipse,label="0 · Judiciary Information System\nAuthenticated record management"];
+ r -> jis [label="Case details, assignments, schedules,\nchange reasons, account operations, queries"];
+ jis -> r [label="CIN, confirmations, case records,\nagenda, accounts and history"];
+ j -> jis [label="Queries, hearing summaries,\nverdict and judgment summary"];
+ jis -> j [label="Assigned case records, agenda,\nsummary/closure confirmations"];
+ l -> jis [label="Authorized search / browse queries"];
+ jis -> l [label="Represented case records and agenda"];
+}
